@@ -5,9 +5,16 @@ export default class FeaturedArtists extends React.Component {
 
   render() {
     return (
-      <div>
-        <h1>FEATURED ARTISTS</h1>
-      </div>
+      <header className="bg-primary">
+        <div className="header-content">
+          <div className="header-content-inner">
+            <h1 id="homeHeading">Featured Go Here</h1>
+            <hr></hr>
+            <p>Scaffolding fools!</p>
+            <a href="#hiphopcollection" className="btn btn-primary btn-long page-scroll">REALIZE THE RISE</a>
+          </div>
+        </div>
+      </header>
     );
   }
 }
