@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router";
 
-import Header from "./Header";
+import TopNav from "./TopNav";
 
 export default class Layout extends React.Component {
   render() {
     return (
       <div>
-        <Header history={this.props.history}/>
+        <TopNav history={this.props.history}/>
         {this.props.children}
       </div>
     );
