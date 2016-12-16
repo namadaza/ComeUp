@@ -1,19 +1,20 @@
 import React from "react";
 import { Link } from "react-router";
 
+import FeaturedArtistTile from "./FeaturedArtistTile";
+
+
 export default class FeaturedArtists extends React.Component {
 
   render() {
     return (
       <header className="bg-primary">
         <div className="header-content">
-          <div className="header-content-inner">
-            <h1 id="homeHeading">Featured Go Here</h1>
-            <hr></hr>
-            <p>Scaffolding fools!</p>
-            <a href="#hiphopcollection" className="btn btn-primary btn-long page-scroll">REALIZE THE RISE</a>
-          </div>
+          <FeaturedArtistTile />
+          <FeaturedArtistTile />
+          <FeaturedArtistTile />
         </div>
+        <a href="#hiphopcollection" className="btn btn-primary btn-long page-scroll" id="realizerisebtn">REALIZE THE RISE</a>
       </header>
     );
   }

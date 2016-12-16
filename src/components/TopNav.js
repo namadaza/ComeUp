@@ -16,7 +16,10 @@ export default class Header extends React.Component {
           <div className="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul className="nav navbar-nav navbar-right">
               <li>
-                <a className="page-scroll" href="#submitmusic">Submit Music</a>
+                <a className="page-scroll" href="#submitmusic">
+                  Submit Music
+                  <i className="fa fa-music fa-fw fa-lg" aria-hidden="true"></i>
+                </a>
               </li>
             </ul>
           </div>
