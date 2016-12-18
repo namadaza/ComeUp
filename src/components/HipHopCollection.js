@@ -11,11 +11,17 @@ export default class HipHopCollection extends React.Component {
             <div className="col-lg-8 col-lg-offset-2 text-center">
               <h2 className="section-heading">Hip Hop Collection</h2>
               <hr className="light"></hr>
-                <p className="text-faded">Start Bootstrap has everything you need to get your new website up and running in no time! All of the templates and themes on Start Bootstrap are open source, free to download, and easy to use. No strings attached!</p>
+              <div id="row">
+                <div className="tile"></div>
+                <div className="tile"></div>
+                <div className="tile">Hover Me</div>
+                <div className="tile"></div>
+                <div className="tile"></div>
               </div>
             </div>
           </div>
-        </section>
+        </div>
+      </section>
     );
   }
 }

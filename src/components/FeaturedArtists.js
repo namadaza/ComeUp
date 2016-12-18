@@ -8,7 +8,7 @@ export default class FeaturedArtists extends React.Component {
 
   render() {
     return (
-      <header className="bg-primary">
+      <header>
         <div className="header-content">
           <FeaturedArtistTile />
           <FeaturedArtistTile />
