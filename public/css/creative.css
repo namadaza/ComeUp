@@ -49,11 +49,56 @@ p {
 .bg-primary {
   background-color: #000000;
 }
-.bg-primary .container{
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
+@media (min-width: 768px) {
+  .collection .row {
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .collection .tile {
+    width: 100%;
+    height: 100%;
+    min-width: 150px;
+    min-height: 150px;
+  }
+  .collection #row {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    width: 100%;
+  }
+  .collection .tile {
+    position: relative;
+    display: inline-block;
+  }
+}
+.collection #row {
+  transition: 1s transform;
+}
+.collection .tile {
+  border: 1px solid blue;
+  background-color: skyblue;
+  padding: 5px;
+  box-sizing: border-box;
+  transition: 1s transform;
+  transform-origin: top left;
+  float: left;
+  margin-right: 10px;
+}
+.collection #row:hover {
+  transform: translate3d(-40px, 0, 0);
+}
+.collection .tile:hover {
+  transform: scale(2);
+}
+.collection .tile:hover ~ .tile {
+  transform: translate3d(80px, 0, 0);
 }
 .bg-dark {
   background-color: #222222;
@@ -235,7 +280,7 @@ header .header-content .featuredartisttile h5 {
     top: 1%;
     -webkit-flex-direction: row;
     flex-direction: row;
-    max-width: 1000px;
+    max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -258,32 +303,6 @@ header .header-content .featuredartisttile h5 {
 .section-heading {
   margin-top: 0;
   text-align: left;
-}
-#hiphopcollection #row {
-  transition: 1s transform;
-}
-#hiphopcollection .tile {
-  width: 80px;
-  height: 80px;
-  border: 1px solid blue;
-  background-color: skyblue;
-  padding: 5px;
-  box-sizing: border-box;
-  transition: 1s transform;
-  transform-origin: top left;
-  float: left;
-  margin-right: 10px;
-}
-#hiphopcollection #row:hover {
-  transform: translate3d(-40px, 0, 0);
-}
-
-#hiphopcollection .tile:hover {
-  transform: scale(2);
-}
-
-#hiphopcollection .tile:hover ~ .tile {
-  transform: translate3d(80px, 0, 0);
 }
 .service-box {
   max-width: 400px;
