@@ -50,40 +50,51 @@ p {
   background-color: #000000;
 }
 @media (min-width: 768px) {
-  .collection .row {
-    padding-left: 5px;
-    padding-right: 5px;
-    max-width: 1500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .collection .tile {
-    width: 100%;
-    height: 100%;
-    min-width: 150px;
-    min-height: 150px;
-  }
-  .collection #row {
-    display: -webkit-box;
-    display: -moz-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    width: 100%;
-  }
-  .collection .tile {
-    position: relative;
-    display: inline-block;
-  }
 }
-.collection #row {
+.collection .row {
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+.collection .tile {
+  width: 100%;
+  height: 100%;
+  min-width: 150px;
+  min-height: 150px;
+  flex: 0 0 10%;
+}
+.collection button {
+  width: 40px;
+  height: 40px;
+}
+.collection img {
+  width: 100%;
+  height: 100%;
+  min-width: 150px;
+  min-height: 150px;
+}
+.collection h2 {
+  flex: 0 0 100%;
+}
+.collection button {
+  padding-right: 5px;
+}
+/* Collection Animations */
+.collection .row {
   transition: 1s transform;
 }
 .collection .tile {
-  border: 1px solid blue;
-  background-color: skyblue;
   padding: 5px;
   box-sizing: border-box;
   transition: 1s transform;
@@ -91,15 +102,13 @@ p {
   float: left;
   margin-right: 10px;
 }
-.collection #row:hover {
-  transform: translate3d(-40px, 0, 0);
-}
 .collection .tile:hover {
   transform: scale(2);
 }
 .collection .tile:hover ~ .tile {
   transform: translate3d(80px, 0, 0);
 }
+/* Collection Animation End */
 .bg-dark {
   background-color: #222222;
   color: white;
@@ -303,6 +312,11 @@ header .header-content .featuredartisttile h5 {
 .section-heading {
   margin-top: 0;
   text-align: left;
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .service-box {
   max-width: 400px;

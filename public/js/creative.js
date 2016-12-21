@@ -61,4 +61,11 @@
         }
     });
 
+    $('.single-item').slick({
+      infinite: true,
+      dots: true,
+      slidesToShow: 4,
+      slidesToScroll: 4,
+      adaptiveHeight: true
+    });
 })(jQuery); // End of use strict

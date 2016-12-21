@@ -14,7 +14,7 @@ var swig  = require('swig');
 
 //SERVER
 var app = express();
-app.set('port', 8080);
+app.set('port', 3000);
 
 //EXPRESS MIDDLEWARES
 app.use(express.static(path.join(__dirname, 'public')));
