@@ -7,6 +7,11 @@ import FeaturedArtistTile from "./FeaturedArtistTile";
 export default class FeaturedArtists extends React.Component {
 
   render() {
+    var btnStyle = {
+      width: '50%',
+      fontFamily: 'Oswald',
+      fontWeight: '500'
+    }
     return (
       <header>
         <div className="header-content">
@@ -14,7 +19,8 @@ export default class FeaturedArtists extends React.Component {
           <FeaturedArtistTile />
           <FeaturedArtistTile />
         </div>
-        <a href="#hiphopcollection" className="btn btn-primary btn-long page-scroll" id="realizerisebtn">REALIZE THE RISE</a>
+        <a href="#hiphopcollection" className="button button-3d button-royal page-scroll" style={btnStyle}>REALIZE THE RISE</a>
+
       </header>
     );
   }

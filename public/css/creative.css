@@ -10,6 +10,7 @@ body {
 }
 body {
   font-family: 'Oswald', sans-serif;
+  background-color: black;
 }
 hr {
   border-color: #F05F40;
@@ -89,26 +90,124 @@ p {
 }
 .collection button {
   padding-right: 5px;
+  height: 100%;
+}
+.collection button:nth-child(1),
+.collection button:nth-child(1):hover,
+.collection button:nth-child(1):focus {
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    black, transparent
+  );
+}
+.collection button,
+.collection button:hover,
+.collection button:focus {
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    transparent, black
+  );
+}
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+.slick-prev {
+  left: 5px !important;
+}
+.slick-next {
+  right: 5px !important;
 }
 /* Collection Animations */
+$duration = 450ms
+
 .collection .row {
-  transition: 1s transform;
+  transition: $duration transform;
 }
 .collection .tile {
   padding: 5px;
   box-sizing: border-box;
-  transition: 1s transform;
-  transform-origin: top left;
+  transition: all .5s ease;
+  transition-property: opacity, transform;
+  transform-origin: 50% 50%;
   float: left;
   margin-right: 10px;
 }
-.collection .tile:hover {
-  transform: scale(2);
+.collection .slick-list:hover .tile {
+  opacity: .3;
+  transform: scale(0.9);
 }
-.collection .tile:hover ~ .tile {
-  transform: translate3d(80px, 0, 0);
+.collection .slick-list .tile:hover {
+  opacity: 1;
+  transform: scale(1);
 }
 /* Collection Animation End */
+.artistprofile {
+  background-color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 100px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: row;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid coral;
+  border-bottom: 2px solid coral;
+}
+.artistprofile .artistsocialmedia {
+  margin: auto;
+  padding-top: 5px;
+  display: table-cell;
+  vertical-align: middle;
+}
+.artistprofile .artistsocialmedia img {
+  display: table-cell;
+  vertical-align: middle;
+  width: 80%;
+  padding-bottom: 20px;
+}
+.artistprofile .artistname {
+  width: 50%;
+  height: 100%;
+  padding-top: 5px;
+  padding-left: 10px;
+  border-left: 5px solid coral;
+  -webkit-border-image:
+  -webkit-gradient(linear, 0 0, 0 100%, from(coral), to(rgba(0, 0, 0, 0))) 1 100%;
+  -webkit-border-image:
+  -webkit-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image:
+  -moz-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+  -o-border-image:
+  -o-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+  linear-gradient(to bottom, coral, rgba(0, 0, 0, 0)) 1 100%;
+}
+.artistprofile .artistname h1 {
+  font-weight: 700;
+  font-size: 75px;
+}
+.artistprofile .artistname p {
+  padding-top: 10px;
+  color: white;
+  font-weight: 300;
+}
+
+.artistprofile .artistcontent {
+  width: 100%;
+  margin-left: 5px;
+}
 .bg-dark {
   background-color: #222222;
   color: white;

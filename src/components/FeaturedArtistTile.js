@@ -4,8 +4,9 @@ import { Link } from "react-router";
 export default class FeaturedArtistTile extends React.Component {
 
   render() {
-    const tileStyle = {
-
+    const btnStyle = {
+      width: '100%',
+      borderRadius: '0px !important'
     }
     return (
       <div className="featuredartisttile">
@@ -22,7 +23,7 @@ export default class FeaturedArtistTile extends React.Component {
           &nbsp;
           Floyd Mayweather
         </h5>
-        <a href="#hiphopcollection" className="btn btn-primary btn-skinny page-scroll">
+        <a href="#hiphopcollection" className="btn btn-primary btn-skinny page-scroll" style={btnStyle}>
           <i className="fa fa-angle-up" aria-hidden="true"></i>
         </a>
       </div>
