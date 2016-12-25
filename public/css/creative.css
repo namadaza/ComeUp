@@ -50,164 +50,7 @@ p {
 .bg-primary {
   background-color: #000000;
 }
-@media (min-width: 768px) {
-}
-.collection .row {
-  padding-left: 5px;
-  padding-right: 5px;
-  max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  width: 100%;
-}
-.collection .tile {
-  width: 100%;
-  height: 100%;
-  min-width: 150px;
-  min-height: 150px;
-  flex: 0 0 10%;
-}
-.collection button {
-  width: 40px;
-  height: 40px;
-}
-.collection img {
-  width: 100%;
-  height: 100%;
-  min-width: 150px;
-  min-height: 150px;
-}
-.collection h2 {
-  flex: 0 0 100%;
-}
-.collection button {
-  padding-right: 5px;
-  height: 100%;
-}
-.collection button:nth-child(1),
-.collection button:nth-child(1):hover,
-.collection button:nth-child(1):focus {
-  background-color: transparent;
-  background-image: linear-gradient(
-    to right,
-    black, transparent
-  );
-}
-.collection button,
-.collection button:hover,
-.collection button:focus {
-  background-color: transparent;
-  background-image: linear-gradient(
-    to right,
-    transparent, black
-  );
-}
-.slick-prev, .slick-next {
-  z-index: 1;
-}
-.slick-prev {
-  left: 5px !important;
-}
-.slick-next {
-  right: 5px !important;
-}
-/* Collection Animations */
-$duration = 450ms
 
-.collection .row {
-  transition: $duration transform;
-}
-.collection .tile {
-  padding: 5px;
-  box-sizing: border-box;
-  transition: all .5s ease;
-  transition-property: opacity, transform;
-  transform-origin: 50% 50%;
-  float: left;
-  margin-right: 10px;
-}
-.collection .slick-list:hover .tile {
-  opacity: .3;
-  transform: scale(0.9);
-}
-.collection .slick-list .tile:hover {
-  opacity: 1;
-  transform: scale(1);
-}
-/* Collection Animation End */
-.artistprofile {
-  background-color: black;
-  padding-left: 5px;
-  padding-right: 5px;
-  margin-bottom: 100px;
-  max-width: 1500px;
-  margin-left: auto;
-  margin-right: auto;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: row;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  overflow: hidden;
-  width: 100%;
-  height: 100%;
-  border-top: 2px solid coral;
-  border-bottom: 2px solid coral;
-}
-.artistprofile .artistsocialmedia {
-  margin: auto;
-  padding-top: 5px;
-  display: table-cell;
-  vertical-align: middle;
-}
-.artistprofile .artistsocialmedia img {
-  display: table-cell;
-  vertical-align: middle;
-  width: 80%;
-  padding-bottom: 20px;
-}
-.artistprofile .artistname {
-  width: 50%;
-  height: 100%;
-  padding-top: 5px;
-  padding-left: 10px;
-  border-left: 5px solid coral;
-  -webkit-border-image:
-  -webkit-gradient(linear, 0 0, 0 100%, from(coral), to(rgba(0, 0, 0, 0))) 1 100%;
-  -webkit-border-image:
-  -webkit-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
-  -moz-border-image:
-  -moz-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
-  -o-border-image:
-  -o-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
-  border-image:
-  linear-gradient(to bottom, coral, rgba(0, 0, 0, 0)) 1 100%;
-}
-.artistprofile .artistname h1 {
-  font-weight: 700;
-  font-size: 75px;
-}
-.artistprofile .artistname p {
-  padding-top: 10px;
-  color: white;
-  font-weight: 300;
-}
-
-.artistprofile .artistcontent {
-  width: 100%;
-  margin-left: 5px;
-}
 .bg-dark {
   background-color: #222222;
   color: white;
@@ -224,198 +67,19 @@ aside {
 .no-padding {
   padding: 0;
 }
-.navbar-default {
-  background-color: black;
-  border-bottom: 1px solid;
-  border-color: coral;
-  -webkit-transition: all 0.35s;
-  -moz-transition: all 0.35s;
-  transition: all 0.35s;
-}
-.navbar-default .navbar-header .navbar-brand {
-  color: white;
-  font-weight: 700;
-  text-transform: uppercase;
-}
-.navbar-default .navbar-header .navbar-brand:hover,
-.navbar-default .navbar-header .navbar-brand:focus {
-  color: #F05F40;
-}
-.navbar-default .navbar-header .navbar-toggle {
-  font-weight: 700;
-  font-size: 12px;
-  color: white;
-  text-transform: uppercase;
-  background-color: black;
-}
-.navbar-default .navbar-toggle:hover,
-.navbar-default .navbar-toggle:focus {
-  color: #F05F40;
-  border-color: #F05F40;
-}
-.navbar-default .nav > li > a,
-.navbar-default .nav > li > a:focus {
-  text-transform: uppercase;
-  font-weight: 700;
-  font-size: 13px;
-  color: white;
-}
-.navbar-default .nav > li > a:hover,
-.navbar-default .nav > li > a:focus:hover {
-  color: #F05F40;
-}
-.navbar-default .nav > li.active > a,
-.navbar-default .nav > li.active > a:focus {
-  color: #F05F40 !important;
-  background-color: transparent;
-}
-.navbar-default .nav > li.active > a:hover,
-.navbar-default .nav > li.active > a:focus:hover {
-  background-color: transparent;
-}
-@media (min-width: 768px) {
-  .navbar-default {
-    background-color: coral;
-  }
-  .navbar-default .navbar-header .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 22px;
-  }
-  .navbar-default .navbar-header .navbar-brand:hover,
-  .navbar-default .navbar-header .navbar-brand:focus {
-    color: white;
-  }
-  .navbar-default .nav > li > a,
-  .navbar-default .nav > li > a:focus {
-    color: rgba(255, 255, 255, 0.7);
-  }
-  .navbar-default .nav > li > a:hover,
-  .navbar-default .nav > li > a:focus:hover {
-    color: white;
-  }
-  .navbar-default.affix {
-    background-color: black;
-    border-bottom: 1px solid;
-    border-color: coral;
-  }
-  .navbar-default.affix .navbar-header .navbar-brand {
-    color: white;
-    font-size: 20px;
-  }
-  .navbar-default.affix .navbar-header .navbar-brand:hover,
-  .navbar-default.affix .navbar-header .navbar-brand:focus {
-    color: #eb3812;
-  }
-  .navbar-default.affix .nav > li > a,
-  .navbar-default.affix .nav > li > a:focus {
-    color: white;
-  }
-  .navbar-default.affix .nav > li > a:hover,
-  .navbar-default.affix .nav > li > a:focus:hover {
-    color: #F05F40;
-  }
-}
-header {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  -o-background-size: cover;
-  background-position: center;
-  text-align: center;
-  background-color: black;
-}
-header #realizerisebtn {
-  margin-top: auto;
-}
-header .header-content {
-  position: relative;
-  text-align: center;
-  padding-top: 50px;
-  padding-bottom: 100px;
-  padding-left: 15px;
-  padding-right: 15px;
-  width: 100%;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  -webkit-flex-direction: column;
-  flex-direction: column;
-}
-header .header-content hr {
-  margin: 30px auto;
-}
-header .header-content p {
-  font-weight: 300;
-  color: rgba(255, 255, 255, 0.7);
-  font-size: 16px;
-  margin-bottom: 50px;
-}
-header .header-content .btn {
-  position: relative;
-  margin: auto;
-  margin-top: 30%;
-}
-header .header-content .featuredartisttile {
-  flex: 0 0 33%;
-  margin-left: 2px;
-}
-header .header-content .featuredartisttile .btn {
-  margin-top: 0%;
-}
-header .header-content .featuredartisttile img {
-  max-width: 50%;
-  max-height: 50%;
-  min-width: 150px;
-  min-height: 150px;
-}
-header .header-content .featuredartisttile h3 {
-  margin-top: 10px;
-}
-header .header-content .featuredartisttile h5 {
-  margin-left: 20%;
-  text-align: left;
-}
-@media (min-width: 768px) {
-  header {
-    min-height: 100%;
-  }
-  header .header-content {
-    top: 1%;
-    -webkit-flex-direction: row;
-    flex-direction: row;
-    max-width: 1500px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  header .header-content h1 {
-    font-size: 50px;
-  }
-  header .header-content p {
-    font-size: 18px;
-    max-width: 80%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  header .header-content .featuredartisttile img {
-    max-width: 100%;
-    max-height: 100%;
-    min-width: 150px;
-    min-height: 150px;
-  }
-}
 .section-heading {
   margin-top: 0;
-  text-align: left;
+  text-align: center;
   padding-left: 5px;
   padding-right: 5px;
   max-width: 1500px;
   margin-left: auto;
   margin-right: auto;
+}
+@media (min-width: 768px) {
+  .section-heading {
+    text-align: left;
+  }
 }
 .service-box {
   max-width: 400px;
@@ -621,3 +285,498 @@ img::-moz-selection {
 body {
   webkit-tap-highlight-color: #7A378B;
 }
+
+/*
+**********************************************
+COLLECTION STYLING START
+**********************************************
+*/
+.collection .row {
+  padding-left: 5px;
+  padding-right: 5px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  width: 100%;
+}
+.collection .tile img {
+  min-width: 150px;
+  min-height: 150px;
+  width: 60%;
+  height: 60%;
+  margin: auto;
+}
+.collection button,
+.collection button:hover,
+.collection button:focus {
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    transparent, black
+  );
+}
+.collection button:nth-child(1),
+.collection button:nth-child(1):hover,
+.collection button:nth-child(1):focus {
+  background-color: transparent;
+  background-image: linear-gradient(
+    to right,
+    black, transparent
+  );
+}
+.slick-prev, .slick-next {
+  z-index: 1;
+}
+.slick-prev {
+  left: 5px !important;
+}
+.slick-next {
+  right: 5px !important;
+}
+@media (min-width: 768px) {
+  .collection .row {
+    padding-left: 5px;
+    padding-right: 5px;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+  .collection .tile {
+    width: 100%;
+    height: 100%;
+    min-width: 150px;
+    min-height: 150px;
+    flex: 0 0 10%;
+  }
+  .collection button {
+    width: 40px;
+    height: 40px;
+  }
+  .collection .tile img {
+    min-width: 150px;
+    min-height: 150px;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+  }
+  .collection h2 {
+    flex: 0 0 100%;
+  }
+  .collection button {
+    padding-right: 5px;
+    height: 100%;
+  }
+}
+/* Collection Animations */
+$duration = 450ms
+
+.collection .row {
+  transition: $duration transform;
+}
+.collection .tile {
+  padding: 5px;
+  box-sizing: border-box;
+  transition: all .5s ease;
+  transition-property: opacity, transform;
+  transform-origin: 50% 50%;
+  float: left;
+  margin-right: 10px;
+}
+.collection .slick-list:hover .tile {
+  opacity: .3;
+  transform: scale(0.9);
+}
+.collection .slick-list .tile:hover {
+  opacity: 1;
+  transform: scale(1);
+}
+/* Collection Animation End */
+/*
+//////////////////////////////////////////////
+COLLECTION STYLING END
+//////////////////////////////////////////////
+*/
+
+/*
+**********************************************
+ARTIST PROFILE STYLING START
+**********************************************
+*/
+.artistprofile {
+  text-align: center;
+  background-color: black;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-bottom: 100px;
+  max-width: 1500px;
+  margin-left: auto;
+  margin-right: auto;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-top: 2px solid coral;
+  border-bottom: 2px solid coral;
+}
+.artistprofile .artistsocialmedia {
+  padding-top: 5px;
+}
+.artistprofile .artistsocialmedia img {
+  padding-right: 5px;
+  width: 10%;
+  height: 10%;
+}
+.artistprofile .artistname {
+  height: 100%;
+  padding-top: 5px;
+  padding-left: 10px;
+  border-top: 5px solid coral;
+  -webkit-border-image:
+  -webkit-gradient(linear, 0 0, 0 100%, from(coral), to(rgba(0, 0, 0, 0))) 1 100%;
+  -webkit-border-image:
+  -webkit-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+  -moz-border-image:
+  -moz-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+  -o-border-image:
+  -o-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+  border-image:
+  linear-gradient(to bottom, coral, rgba(0, 0, 0, 0)) 1 100%;
+}
+.artistprofile .artistname h1 {
+  font-weight: 700;
+  font-size: 75px;
+}
+.artistprofile .artistname p {
+  padding-top: 10px;
+  color: white;
+  font-weight: 300;
+}
+.artistprofile .artistcontent {
+  width: 100%;
+  margin-left: 5px;
+  min-height: 300px;
+}
+@media (min-width: 768px) {
+  .artistprofile {
+    background-color: black;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-bottom: 100px;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    border-top: 2px solid coral;
+    border-bottom: 2px solid coral;
+  }
+  .artistprofile .artistsocialmedia {
+    margin: auto;
+    padding-top: 5px;
+    display: table-cell;
+    vertical-align: middle;
+  }
+  .artistprofile .artistsocialmedia img {
+    display: table-cell;
+    vertical-align: middle;
+    width: 80%;
+    padding-bottom: 20px;
+  }
+  .artistprofile .artistname {
+    width: 50%;
+    height: 100%;
+    padding-top: 5px;
+    padding-left: 10px;
+    border-left: 5px solid coral;
+    -webkit-border-image:
+    -webkit-gradient(linear, 0 0, 0 100%, from(coral), to(rgba(0, 0, 0, 0))) 1 100%;
+    -webkit-border-image:
+    -webkit-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+    -moz-border-image:
+    -moz-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+    -o-border-image:
+    -o-linear-gradient(coral, rgba(0, 0, 0, 0)) 1 100%;
+    border-image:
+    linear-gradient(to bottom, coral, rgba(0, 0, 0, 0)) 1 100%;
+    text-align: left;
+  }
+  .artistprofile .artistname h1 {
+    font-weight: 700;
+    font-size: 75px;
+  }
+  .artistprofile .artistname p {
+    padding-top: 10px;
+    color: white;
+    font-weight: 300;
+  }
+  .artistprofile .artistcontent {
+    width: 100%;
+    margin-left: 5px;
+  }
+}
+/*
+//////////////////////////////////////////////
+ARTIST PROFILE STYLING END
+//////////////////////////////////////////////
+*/
+
+/*
+**********************************************
+NAVBAR STYLING START
+**********************************************
+*/
+.navbar-default {
+  background-color: black;
+  border-bottom: 1px solid;
+  border-color: coral;
+  -webkit-transition: all 0.35s;
+  -moz-transition: all 0.35s;
+  transition: all 0.35s;
+}
+.navbar-default .navbar-header .navbar-brand {
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+.navbar-default .navbar-header .navbar-brand:hover,
+.navbar-default .navbar-header .navbar-brand:focus {
+  color: #F05F40;
+}
+.navbar-default .navbar-header .navbar-toggle {
+  font-weight: 700;
+  font-size: 12px;
+  color: white;
+  text-transform: uppercase;
+  background-color: black;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  color: #F05F40;
+  border-color: #F05F40;
+}
+.navbar-default .nav > li > a,
+.navbar-default .nav > li > a:focus {
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 13px;
+  color: white;
+}
+.navbar-default .nav > li > a:hover,
+.navbar-default .nav > li > a:focus:hover {
+  color: #F05F40;
+}
+.navbar-default .nav > li.active > a,
+.navbar-default .nav > li.active > a:focus {
+  color: #F05F40 !important;
+  background-color: transparent;
+}
+.navbar-default .nav > li.active > a:hover,
+.navbar-default .nav > li.active > a:focus:hover {
+  background-color: transparent;
+}
+@media (min-width: 768px) {
+  .navbar-default {
+    background-color: coral;
+  }
+  .navbar-default .navbar-header .navbar-brand {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 22px;
+  }
+  .navbar-default .navbar-header .navbar-brand:hover,
+  .navbar-default .navbar-header .navbar-brand:focus {
+    color: white;
+  }
+  .navbar-default .nav > li > a,
+  .navbar-default .nav > li > a:focus {
+    color: rgba(255, 255, 255, 0.7);
+  }
+  .navbar-default .nav > li > a:hover,
+  .navbar-default .nav > li > a:focus:hover {
+    color: white;
+  }
+  .navbar-default.affix {
+    background-color: black;
+    border-bottom: 1px solid;
+    border-color: coral;
+  }
+  .navbar-default.affix .navbar-header .navbar-brand {
+    color: white;
+    font-size: 20px;
+  }
+  .navbar-default.affix .navbar-header .navbar-brand:hover,
+  .navbar-default.affix .navbar-header .navbar-brand:focus {
+    color: #eb3812;
+  }
+  .navbar-default.affix .nav > li > a,
+  .navbar-default.affix .nav > li > a:focus {
+    color: white;
+  }
+  .navbar-default.affix .nav > li > a:hover,
+  .navbar-default.affix .nav > li > a:focus:hover {
+    color: #F05F40;
+  }
+}
+/*
+//////////////////////////////////////////////
+NAVBAR STYLING END
+//////////////////////////////////////////////
+*/
+
+/*
+**********************************************
+HEADER/FEATURED ARTIST STYLING START
+**********************************************
+*/
+header {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
+  background-position: center;
+  text-align: center;
+  background-color: black;
+}
+header #realizerisebtn {
+  margin-top: auto;
+}
+header .header-content {
+  position: relative;
+  text-align: center;
+  padding-top: 50px;
+  padding-bottom: 100px;
+  padding-left: 15px;
+  padding-right: 15px;
+  width: 100%;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+}
+header .header-content hr {
+  margin: 30px auto;
+}
+header .header-content p {
+  font-weight: 300;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin-bottom: 50px;
+}
+header .header-content .btn {
+  position: relative;
+  margin: auto;
+  margin-top: 30%;
+}
+header .header-content .featuredartisttile {
+  flex: 0 0 33%;
+  margin-left: 2px;
+}
+header .header-content .featuredartisttile .btn {
+  margin-top: 0%;
+}
+header .header-content .featuredartisttile .splash img {
+  max-width: 50%;
+  max-height: 50%;
+  min-width: 150px;
+  min-height: 150px;
+}
+header .header-content .featuredartisttile h3 {
+  margin-top: 10px;
+}
+header .header-content .featuredartisttile h5 {
+  margin-left: 20%;
+  text-align: left;
+}
+header .header-content .featuredartisttile .bg {
+  filter: brightness(120%);
+  -webkit-filter: brightness(120%);
+}
+header .header-content .featuredartisttile .bio {
+  margin-left: 15px;
+  margin-top: 15px;
+  padding-top: 1px;
+  text-align: left;
+}
+header .header-content .featuredartisttile .bio h1 {
+  font-weight: 400;
+}
+header .header-content .featuredartisttile .bio p {
+  max-width: 100%;
+}
+header .header-content .featuredartisttile .socialmedia {
+  padding-bottom: 10px;
+}
+header .header-content .featuredartisttile .socialmedia img {
+  width: 10%;
+  height: 10%;
+}
+@media (min-width: 768px) {
+  header {
+    min-height: 100%;
+  }
+  header .header-content {
+    top: 1%;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    max-width: 1500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header .header-content h1 {
+    font-size: 50px;
+  }
+  header .header-content p {
+    font-size: 18px;
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  header .header-content .featuredartisttile .splash img {
+    max-width: 100%;
+    max-height: 100%;
+    min-width: 150px;
+    min-height: 150px;
+  }
+}
+/*
+//////////////////////////////////////////////
+HEADER/FEATURED ARTIST STYLING END
+//////////////////////////////////////////////
+*/

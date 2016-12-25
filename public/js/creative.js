@@ -63,9 +63,18 @@
 
     $('.single-item').slick({
       infinite: true,
-      dots: true,
       slidesToShow: 4,
       slidesToScroll: 4,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            infinite: true
+          }
+        }
+      ]
     });
 })(jQuery); // End of use strict
