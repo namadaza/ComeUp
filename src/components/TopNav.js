@@ -1,6 +1,8 @@
 import React from "react";
 import { Link } from "react-router";
 
+import MediaPlayer from "./MediaPlayer";
+
 export default class Header extends React.Component {
 
   render() {
@@ -20,10 +22,19 @@ export default class Header extends React.Component {
                   Submit Music
                   <i className="fa fa-music fa-fw fa-lg" aria-hidden="true"></i>
                 </a>
+                <a className="page-scroll" href="#submitmusic">
+                  Facebook
+                  <i className="fa fa-facebook-square fa-fw fa-lg" aria-hidden="true"></i>
+                </a>
+                <a className="page-scroll" href="#submitmusic">
+                  Soundcloud
+                  <i className="fa fa-soundcloud fa-fw fa-lg" aria-hidden="true"></i>
+                </a>
               </li>
             </ul>
           </div>
         </div>
+        <MediaPlayer />
       </nav>
     );
   }
