@@ -1,22 +1,37 @@
 import React from "react";
 import { Link } from "react-router";
-import Blur from "react-blur";
 
-export default class FeaturedArtistTile extends React.Component {
+import FeaturedArtistStore from '../stores/FeaturedArtistStore';
+import FeaturedArtistActions from '../actions/FeaturedArtistActions';
 
+export default class FeaturedArtistRight extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = FeaturedArtistStore.getState();
+    this.onChange = this.onChange.bind(this);
+  }
+  componentDidMount() {
+    console.log("artistname: " + this.props.artistname);
+    FeaturedArtistStore.listen(this.onChange);
+    FeaturedArtistActions.getResources(this.props.artistname);
+  }
+  componentWillUnmount() {
+    FeaturedArtistStore.unlisten(this.onChange);
+  }
+  onChange(state) {
+    this.setState(state);
+  }
+  onClickA() {
+    console.log("TRIGGERED");
+  }
   render() {
     const btnStyle = {
       width: '100%',
       borderRadius: '0px !important'
     }
-    const splashStyle = {
-      display: 'none'
-    }
 
     var contentBgImg = 'img/JEFFREY_album_blur.jpg'
-    const infoStyle = {
-      display: 'visible',
-    }
+
     const blurBg = {
       backgroundImage: 'url(' + contentBgImg + ')',
       backgroundSize: 'cover',
@@ -25,7 +40,8 @@ export default class FeaturedArtistTile extends React.Component {
     }
     return (
         <div className="featuredartisttile">
-          <div className="splash" style={splashStyle}>
+          <div className="splash"
+               style={this.state.showSplash ? {} : {display: 'none'}}>
             <h1>Young Thug</h1>
             <img src="img/JEFFREY_album.jpg" alt="JEFFREY"></img>
             <h3>JEFFREY</h3>
@@ -39,11 +55,14 @@ export default class FeaturedArtistTile extends React.Component {
               &nbsp;
               Floyd Mayweather
             </h5>
-            <a href="#hiphopcollection" className="btn btn-primary btn-skinny page-scroll" style={btnStyle}>
+            <button className="btn btn-primary btn-skinny"
+               style={btnStyle}
+               onClick={() => { FeaturedArtistActions.toggleSplashInfo() }}>
               SEE MORE
-            </a>
+            </button>
           </div>
-          <div className="info" style={infoStyle}>
+          <div className="info"
+               style={this.state.showInfo ? {} : {display: 'none'}}>
             <div className="bg" style={blurBg}>
               <div className="bio">
                 <h1>Young Thug</h1>
@@ -65,9 +84,11 @@ export default class FeaturedArtistTile extends React.Component {
                 <img src="img/yt.png"></img>
               </div>
             </div>
-            <a href="#hiphopcollection" className="btn btn-primary btn-skinny page-scroll" style={btnStyle}>
+            <button className="btn btn-primary btn-skinny"
+               style={btnStyle}
+               onClick={() => { FeaturedArtistActions.toggleSplashInfo() }}>
               SEE LESS
-            </a>
+            </button>
         </div>
       </div>
     );
