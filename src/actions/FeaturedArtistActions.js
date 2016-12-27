@@ -2,10 +2,6 @@ import alt from '../alt';
 
 class FeaturedArtistActions {
   constructor() {
-    this.generateActions(
-      'getResourcesSuccess',
-      'getPostsFail'
-    );
   }
 
   getResources(payload) {
@@ -18,17 +14,16 @@ class FeaturedArtistActions {
     $.ajax({
       url: url,
       data: params
-    })
-      .done((data) => {
-        this.getResourcesSuccess(data);
-      })
-      .fail((jqXhr) => {
-        this.getResourcesFail(jqXhr.responseJSON.message);
-      });
+    });
   }
 
-  toggleSplashInfo() {
-    console.log("TRIGGERED2.0");
+  toggleLeftSplashInfo() {
+    return true;
+  }
+  toggleMidSplashInfo() {
+    return true;
+  }
+  toggleRightSplashInfo() {
     return true;
   }
 }
