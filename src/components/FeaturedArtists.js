@@ -20,7 +20,7 @@ export default class FeaturedArtists extends React.Component {
           <FeaturedArtistTile artistname="youngthug" position="mid"/>
           <FeaturedArtistTile artistname="youngthug" position="right"/>
         </div>
-        <a href="#hiphopcollection" className="button button-3d button-royal page-scroll" style={btnStyle}>REALIZE THE RISE</a>
+        <a href="#collection" className="button button-3d button-royal page-scroll" style={btnStyle}>REALIZE THE RISE</a>
 
       </header>
     );
