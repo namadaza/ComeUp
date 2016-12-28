@@ -4,36 +4,27 @@ import FeaturedArtistActions from '../actions/FeaturedArtistActions';
 class FeaturedArtistStore {
   constructor() {
     this.bindListeners({
-      onToggleLeftSplashInfo: FeaturedArtistActions.toggleLeftSplashInfo,
-      onToggleMidSplashInfo: FeaturedArtistActions.toggleMidSplashInfo,
-      onToggleRightSplashInfo: FeaturedArtistActions.toggleRightSplashInfo
+      onToggleSplashInfo: FeaturedArtistActions.toggleSplashInfo,
+      onSetSplashInfo: FeaturedArtistActions.setSplashInfo
     })
 
-    this.leftResources = {};
-    this.midResources = {};
-    this.rightResources = {};
+    this.resourcesByArtistname = {};
+    
+    this.showSplashByArtistname = {};
+    this.showInfoByArtistname = {};
+  }
 
-    this.showLeftSplash = true;
-    this.showLeftInfo = false;
+  onToggleSplashInfo(artistname) {
+    this.showSplashByArtistname[artistname] = !this.showSplashByArtistname[artistname];
+    this.showInfoByArtistname[artistname] = !this.showInfoByArtistname[artistname];
+  }
 
-    this.showMidSplash = true;
-    this.showMidInfo = false;
+  onSetSplashInfo(artistname) {
+    this.showSplashByArtistname[artistname] = true;
+    this.showInfoByArtistname[artistname] = false;
+  }
 
-    this.showRightSplash = true;
-    this.showRightInfo = false;
-  }
-  onToggleLeftSplashInfo() {
-    this.showLeftSplash = !this.showLeftSplash;
-    this.showLeftInfo = !this.showLeftInfo;
-  }
-  onToggleMidSplashInfo() {
-    this.showMidSplash = !this.showMidSplash;
-    this.showMidInfo = !this.showMidInfo;
-  }
-  onToggleRightSplashInfo() {
-    this.showRightSplash = !this.showRightSplash;
-    this.showRightInfo = !this.showRightInfo;
-  }
+
 }
 
 export default alt.createStore(FeaturedArtistStore);

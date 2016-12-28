@@ -1,6 +1,6 @@
 import alt from '../alt';
 
-class FeaturedArtistActions {
+class CollectionTileActions {
   constructor() {
   }
 
@@ -17,13 +17,13 @@ class FeaturedArtistActions {
     });
   }
 
-  toggleSplashInfo(artistname) {
+  toggleArtistProfile(artistname) {
     return artistname;
   }
 
-  setSplashInfo(artistname) {
+  setArtistProfile(artistname) {
     return artistname;
   }
 }
 
-export default alt.createActions(FeaturedArtistActions);
+export default alt.createActions(CollectionTileActions);

@@ -2,7 +2,9 @@ import React from "react";
 import { Link } from "react-router";
 
 export default class ArtistProfile extends React.Component {
-
+  constructor(props) {
+    super(props);
+  }
   render() {
     var contentBgImg = 'img/dasefxcontent.jpg'
     var contentStyle = {
@@ -12,7 +14,7 @@ export default class ArtistProfile extends React.Component {
       backgroundPosition: '50% 50%'
     };
     return (
-      <div className="artistprofile">
+      <div className="artistprofile" style={this.props.visible ? {} : {display: 'none'}}>
         <div className="artistsocialmedia">
           <img src="img/fb.png"></img>
           <img src="img/ig.png"></img>
@@ -20,7 +22,7 @@ export default class ArtistProfile extends React.Component {
           <img src="img/yt.png"></img>
         </div>
         <div className="artistname">
-          <h1>Das EFX</h1>
+          <h1>{this.props.artistname}</h1>
           <div className="artistbio">
             <p>
             Das EFX is an American hip hop duo. It consists of emcees Dray (also known as Krazy Drayz,

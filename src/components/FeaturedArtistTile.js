@@ -10,16 +10,9 @@ export default class FeaturedArtistTile extends React.Component {
     this.state = FeaturedArtistStore.getState();
     this.onChange = this.onChange.bind(this);
 
-    if (this.props.position == 'left') {
-      this.showSplash = this.state.showLeftSplash;
-      this.showInfo = this.state.showLeftInfo;
-    } else if (this.props.position == 'mid') {
-      this.showSplash = this.state.showMidSplash;
-      this.showInfo = this.state.showMidInfo;
-    } else if (this.props.position == 'right') {
-      this.showSplash = this.state.showRightSplash;
-      this.showInfo = this.state.showRightInfo;
-    }
+    FeaturedArtistActions.setSplashInfo(this.props.artistname);
+    this.showSplash = true;
+    this.showInfo = false;
   }
   componentDidMount() {
     FeaturedArtistStore.listen(this.onChange);
@@ -31,19 +24,9 @@ export default class FeaturedArtistTile extends React.Component {
   onChange(state) {
     //use call back and forceUpdate to re-render
     this.setState(state, () => {
-      if (this.props.position == 'left') {
-        this.showSplash = this.state.showLeftSplash;
-        this.showInfo = this.state.showLeftInfo;
-        this.forceUpdate();
-      } else if (this.props.position == 'mid') {
-        this.showSplash = this.state.showMidSplash;
-        this.showInfo = this.state.showMidInfo;
-        this.forceUpdate();
-      } else if (this.props.position == 'right') {
-        this.showSplash = this.state.showRightSplash;
-        this.showInfo = this.state.showRightInfo;
-        this.forceUpdate();
-      }
+      this.showSplash = this.state.showSplashByArtistname[this.props.artistname];
+      this.showInfo = this.state.showInfoByArtistname[this.props.artistname];
+      this.forceUpdate();
     });
   }
   render() {
@@ -64,7 +47,7 @@ export default class FeaturedArtistTile extends React.Component {
         <div className="featuredartisttile">
           <div className="splash"
                style={this.showSplash ? {} : {display: 'none'}}>
-            <h1>Young Thug</h1>
+            <h1>{this.props.artistname}</h1>
             <img src="img/JEFFREY_album.jpg" alt="JEFFREY"></img>
             <h3>JEFFREY</h3>
             <h5>
@@ -79,9 +62,7 @@ export default class FeaturedArtistTile extends React.Component {
             </h5>
             <button className="btn btn-primary btn-skinny"
                style={btnStyle}
-               onClick={() => {if (this.props.position == 'left') { FeaturedArtistActions.toggleLeftSplashInfo(); }
-                               else if (this.props.position == 'mid') { FeaturedArtistActions.toggleMidSplashInfo(); }
-                               else if (this.props.position == 'right') { FeaturedArtistActions.toggleRightSplashInfo(); }}}>
+               onClick={() => { FeaturedArtistActions.toggleSplashInfo(this.props.artistname); }}>
               SEE MORE
             </button>
           </div>
@@ -89,7 +70,7 @@ export default class FeaturedArtistTile extends React.Component {
                style={this.showInfo ? {} : {display: 'none'}}>
             <div className="bg" style={blurBg}>
               <div className="bio">
-                <h1>Young Thug</h1>
+                <h1>{this.props.artistname}</h1>
                   <p>
                   Jeffery Lamar Williams[4] (born August 16, 1991), best known professionally as Young Thug, is
                   an American rapper from Atlanta, Georgia. Known for his unconventional vocal style, fashion,
@@ -110,9 +91,7 @@ export default class FeaturedArtistTile extends React.Component {
             </div>
             <button className="btn btn-primary btn-skinny"
                style={btnStyle}
-               onClick={() => {if (this.props.position == 'left') { FeaturedArtistActions.toggleLeftSplashInfo(); }
-                               else if (this.props.position == 'mid') { FeaturedArtistActions.toggleMidSplashInfo(); }
-                               else if (this.props.position == 'right') { FeaturedArtistActions.toggleRightSplashInfo(); }}}>
+               onClick={() => { FeaturedArtistActions.toggleSplashInfo(this.props.artistname); }}>
               SEE LESS
             </button>
         </div>
