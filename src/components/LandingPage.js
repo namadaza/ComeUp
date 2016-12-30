@@ -10,8 +10,8 @@ export default class LandingPage extends React.Component {
     return (
       <div>
         <FeaturedArtists />
-        <Collection title="Hip Hop Collection"/>
-        <Collection title="R&B Collection"/>
+        <Collection genre="hiphop" title="Hip Hop Collection"/>
+        <Collection genre="r&b" title="R&B Collection"/>
       </div>
     );
   }

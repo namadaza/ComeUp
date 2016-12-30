@@ -14,14 +14,13 @@ class CollectionTileStore {
   }
 
   onToggleArtistProfile(artistname) {
-    for (var prop in this.showArtistProfileByArtistname) {
-      if (!this.showArtistProfileByArtistname.hasOwnProperty(prop)) {
-      //The current property is not a direct property of p
-      continue;
-    }
-      if (this.showArtistProfileByArtistname[prop] == true &&
-          prop != artistname) {
-        this.showArtistProfileByArtistname[prop] = false;
+    for (var artist in this.showArtistProfileByArtistname) {
+      if (!this.showArtistProfileByArtistname.hasOwnProperty(artist)) {
+        //The current property is not a direct property of p
+        continue;
+      }
+      if (this.showArtistProfileByArtistname[artist] == true && artist != artistname) {
+        this.showArtistProfileByArtistname[artist] = false;
       }
     }
     this.showArtistProfileByArtistname[artistname] = !this.showArtistProfileByArtistname[artistname];
