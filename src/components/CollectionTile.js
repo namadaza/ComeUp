@@ -9,8 +9,7 @@ export default class CollectionTile extends React.Component {
     super(props);
     this.state = CollectionTileStore.getState();
     this.onChange = this.onChange.bind(this);
-
-    CollectionTileActions.setArtistProfile(this.props.artistname);
+    this.isSelectedTile = false;
   }
   componentDidMount() {
     CollectionTileStore.listen(this.onChange);
@@ -20,9 +19,15 @@ export default class CollectionTile extends React.Component {
   }
   onChange(state) {
     this.setState(state, () => {
+      if (state.activeArtistProfile == this.props.artistname) {
+        this.isSelectedTile = true;
+      }
     });
   }
   render() {
+    const selectedTileStyle = {
+      border: '2px solid coral'
+    }
     return (
       <div className="tile">
         <img src={this.props.imgsrc}></img>

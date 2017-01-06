@@ -14,7 +14,7 @@ export default class ArtistProfile extends React.Component {
       backgroundPosition: '50% 50%'
     };
     return (
-      <div className="artistprofile" style={this.props.visible ? {} : {display: 'none'}}>
+      <div className="artistprofile">
         <div className="artistsocialmedia">
           <img src="img/fb.png"></img>
           <img src="img/ig.png"></img>

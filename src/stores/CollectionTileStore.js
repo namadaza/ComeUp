@@ -4,30 +4,20 @@ import CollectionTileActions from '../actions/CollectionTileActions';
 class CollectionTileStore {
   constructor() {
     this.bindListeners({
-      onToggleArtistProfile: CollectionTileActions.toggleArtistProfile,
-      onSetArtistProfile: CollectionTileActions.setArtistProfile
+      onToggleArtistProfile: CollectionTileActions.toggleArtistProfile
     })
 
     this.resourcesByArtistname = {};
-
-    this.showArtistProfileByArtistname = {};
+    this.activeArtistProfile = "";
   }
 
   onToggleArtistProfile(artistname) {
-    for (var artist in this.showArtistProfileByArtistname) {
-      if (!this.showArtistProfileByArtistname.hasOwnProperty(artist)) {
-        //The current property is not a direct property of p
-        continue;
-      }
-      if (this.showArtistProfileByArtistname[artist] == true && artist != artistname) {
-        this.showArtistProfileByArtistname[artist] = false;
-      }
+    if (this.activeArtistProfile == "" || this.activeArtistProfile != artistname) {
+      this.activeArtistProfile = artistname;
     }
-    this.showArtistProfileByArtistname[artistname] = !this.showArtistProfileByArtistname[artistname];
-  }
-
-  onSetArtistProfile(artistname) {
-    this.showArtistProfileByArtistname[artistname] = false;
+    else {
+      this.activeArtistProfile = "";
+    }
   }
 }
 export default alt.createStore(CollectionTileStore);

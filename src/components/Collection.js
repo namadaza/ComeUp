@@ -1,5 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import ReactCSSTransitionReplace from 'react-css-transition-replace';
 import _ from "underscore";
 
 import CollectionTile from "./CollectionTile";
@@ -44,42 +46,26 @@ export default class Collection extends React.Component {
   renderCollectionTile() {
     var tileList;
 
-    if (this.props.genre == "hiphop") {
-      tileList = _.map(HIPHOP_ARTISTS, (item) => {
-        return <CollectionTile artistname={item.artistname} imgsrc={item.imgsrc} />;
-      })
-    }
-    if (this.props.genre == "r&b") {
-      tileList = _.map(RB_ARTISTS, (item) => {
-        return <CollectionTile artistname={item.artistname} imgsrc={item.imgsrc} />;
-      })
-    }
+    tileList = _.map(this.props.genre == "hiphop" ? HIPHOP_ARTISTS : RB_ARTISTS, (item) => {
+      return <CollectionTile key={item.artistname} artistname={item.artistname} imgsrc={item.imgsrc} />;
+    })
 
     return (
       <div className="row single-item">{tileList}</div>
     )
   }
   renderArtistProfile() {
-    if (this.props.genre == "hiphop") {
+    let activeImgsrc;
+    let activeGenre;
+    _.map(this.props.genre == "hiphop" ? HIPHOP_ARTISTS : RB_ARTISTS, (item) => {
+      if (item.artistname == this.state.activeArtistProfile) {
+        activeImgsrc = item.imgsrc;
+        this.props.genre == "hiphop" ? (activeGenre = "hiphop") : (activeGenre = "r&b");
+      }
+    })
+    if (this.state.activeArtistProfile != "" && this.props.genre == activeGenre) {
       return (
-        _.map(HIPHOP_ARTISTS, (item) => {
-          if (this.state.showArtistProfileByArtistname[item.artistname] == true) {
-            return (
-              <ArtistProfile artistname={item.artistname} imgsrc={item.imgsrc} visible="true"/>
-            )
-          }
-        })
-      )
-    }
-    if (this.props.genre == "r&b") {
-      return (
-        _.map(RB_ARTISTS, (item) => {
-          if (this.state.showArtistProfileByArtistname[item.artistname] == true) {
-            return (
-              <ArtistProfile artistname={item.artistname} imgsrc={item.imgsrc} visible="true"/>
-            )
-          }
-        })
+        <ArtistProfile key={this.state.activeArtistProfile} artistname={this.state.activeArtistProfile} imgsrc={activeImgsrc}/>
       )
     }
   }
@@ -90,7 +76,12 @@ export default class Collection extends React.Component {
           <h2 className="section-heading">{this.props.title}</h2>
           {this.renderCollectionTile()}
         </section>
-        {this.renderArtistProfile()}
+        <ReactCSSTransitionReplace
+          transitionName="artistprofile-animation"
+          transitionEnterTimeout={800}
+          transitionLeaveTimeout={800}>
+          {this.renderArtistProfile()}
+        </ReactCSSTransitionReplace>
       </span>
     );
   }

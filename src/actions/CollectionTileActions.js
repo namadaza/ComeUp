@@ -20,10 +20,6 @@ class CollectionTileActions {
   toggleArtistProfile(artistname) {
     return artistname;
   }
-
-  setArtistProfile(artistname) {
-    return artistname;
-  }
 }
 
 export default alt.createActions(CollectionTileActions);

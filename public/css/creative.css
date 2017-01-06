@@ -11,6 +11,7 @@ body {
 body {
   font-family: 'Oswald', sans-serif;
   background-color: black;
+  margin-bottom: 90%;
 }
 hr {
   border-color: #F05F40;
@@ -59,7 +60,7 @@ p {
   color: rgba(255, 255, 255, 0.7);
 }
 section {
-  padding: 100px 0;
+  padding: 0px 0px;
 }
 aside {
   padding: 50px 0;
@@ -291,6 +292,9 @@ body {
 COLLECTION STYLING START
 **********************************************
 */
+.collection {
+  margin-top: 120px;
+}
 .collection .row {
   padding-left: 5px;
   padding-right: 5px;
@@ -468,8 +472,9 @@ ARTIST PROFILE STYLING START
   background-color: black;
   padding-left: 5px;
   padding-right: 5px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
   max-width: 1500px;
+  min-height: 400px;
   margin-left: auto;
   margin-right: auto;
   display: -webkit-box;
@@ -529,7 +534,6 @@ ARTIST PROFILE STYLING START
     background-color: black;
     padding-left: 5px;
     padding-right: 5px;
-    margin-bottom: 100px;
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
@@ -590,6 +594,28 @@ ARTIST PROFILE STYLING START
     width: 100%;
     margin-left: 5px;
   }
+}
+/* Artist Profile animations */
+.artistprofile-animation-enter {
+  transform: translate(0, -100%);
+  opacity: 0;
+}
+.artistprofile-animation-enter.artistprofile-animation-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity .8s ease-in-out, transform .8s ease-in-out;
+}
+.artistprofile-animation-leave {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.artistprofile-animation-leave.artistprofile-animation-leave-active {
+  transform: translate(0, -100%);
+  opacity: 0;
+  transition: opacity .8s ease-in-out, transform .8s ease-in-out;
+}
+.artistprofile-animation-height {
+  transition: height .8s ease-in-out;
 }
 /*
 //////////////////////////////////////////////
