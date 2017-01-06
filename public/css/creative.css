@@ -13,6 +13,9 @@ body {
   background-color: black;
   margin-bottom: 90%;
 }
+#index {
+  margin-bottom: 100px;
+}
 hr {
   border-color: #F05F40;
   border-width: 3px;
@@ -825,11 +828,20 @@ header .header-content .featuredartisttile .socialmedia img {
   }
   header .header-content {
     top: 1%;
-    -webkit-flex-direction: row;
-    flex-direction: row;
+    background-color: black;
+    padding-left: 5px;
+    padding-right: 5px;
     max-width: 1500px;
     margin-left: auto;
     margin-right: auto;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: row;
+    flex-direction: row;
+    flex-wrap: nowrap;
   }
   header .header-content h1 {
     font-size: 50px;
@@ -840,12 +852,40 @@ header .header-content .featuredartisttile .socialmedia img {
     margin-left: auto;
     margin-right: auto;
   }
+  header .header-content .featuredartisttile {
+    flex: 0 0 33%;
+    margin-left: 2px;
+    width: 33%;
+  }
   header .header-content .featuredartisttile .splash img {
     max-width: 100%;
     max-height: 100%;
     min-width: 150px;
     min-height: 150px;
   }
+}
+/* Featured Artist animations */
+.featured-animation-enter {
+  transform: translate(0, -80%);
+  opacity: 0;
+}
+.featured-animation-enter.featured-animation-enter-active {
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: opacity .4s ease-in-out, transform .4s ease-in-out;
+  transition-delay: .8s;
+}
+.featured-animation-leave {
+  transform: translate(0, 0);
+  opacity: 1;
+}
+.featured-animation-leave.featured-animation-leave-active {
+  transform: translate(0, -80%);
+  opacity: 0;
+  transition: opacity .8s ease-in-out, transform .8s ease-in-out;
+}
+.featured-animation-height {
+  transition: height .8s ease-in-out;
 }
 /*
 //////////////////////////////////////////////

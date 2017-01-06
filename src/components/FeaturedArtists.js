@@ -10,12 +10,13 @@ export default class FeaturedArtists extends React.Component {
     var btnStyle = {
       width: '50%',
       minWidth: '200px',
+      maxWidth: '1500px',
       fontFamily: 'Oswald',
       fontWeight: '500'
     }
     return (
       <header>
-        <div className="header-content">
+        <div className="header-content" id="home">
           <FeaturedArtistTile artistname="Young Thug"/>
           <FeaturedArtistTile artistname="Jay Z"/>
           <FeaturedArtistTile artistname="Rakim"/>

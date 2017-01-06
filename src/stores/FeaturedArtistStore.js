@@ -9,19 +9,15 @@ class FeaturedArtistStore {
     })
 
     this.resourcesByArtistname = {};
-    
     this.showSplashByArtistname = {};
-    this.showInfoByArtistname = {};
   }
 
   onToggleSplashInfo(artistname) {
     this.showSplashByArtistname[artistname] = !this.showSplashByArtistname[artistname];
-    this.showInfoByArtistname[artistname] = !this.showInfoByArtistname[artistname];
   }
 
   onSetSplashInfo(artistname) {
     this.showSplashByArtistname[artistname] = true;
-    this.showInfoByArtistname[artistname] = false;
   }
 
 
