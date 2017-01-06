@@ -1,16 +1,24 @@
 //Babel ES6/JSX Compiler
 require('babel-register');
-var _ = require('underscore');
+var async = require('async');
+var bodyParser = require('body-parser');
+var express = require('express');
+var mongoose = require('mongoose');
+var path = require('path');
 var React = require('react');
 var ReactDOM = require('react-dom/server');
 var Router = require('react-router');
-var path = require('path');
-var bodyParser = require('body-parser');
-var express = require('express');
-var async = require('async');
 var routes = require('./src/routes');
 var swig  = require('swig');
+var _ = require('underscore');
 
+//DB
+var config = require('./db/config');
+var Artist = require('./db/Artist.model');
+mongoose.connect(config.database);
+mongoose.connection.on('error', function() {
+  console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
+})
 
 //SERVER
 var app = express();
@@ -22,6 +30,29 @@ app.set('view engine', 'html');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 //app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
+
+//AJAX API ROUTES
+/* GET /api/featured/resources:artist
+ * returns the resources for a particular artist
+ */
+ app.get('/api/featured/resources', function(req, res, next) {
+  var artist;
+  var params = req.query;
+
+  _.each(params, function(value, key) {
+    if (key == "artist") {
+      artist = value;
+    }
+  });
+
+  Artist
+    .find({ artist: artist, featured: true })
+    .exec(function(err, resources) {
+      if (err) return next(err);
+
+      res.send(resources);
+    });
+});
 
 //REACT MIDDLEWARES
 app.use(function(req, res) {

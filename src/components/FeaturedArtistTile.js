@@ -10,13 +10,18 @@ export default class FeaturedArtistTile extends React.Component {
     super(props);
     this.state = FeaturedArtistStore.getState();
     this.onChange = this.onChange.bind(this);
-
     FeaturedArtistActions.setSplashInfo(this.props.artistname);
     this.showSplash = true;
+
+    if (props.font) {
+      this.fontSize = props.font;
+      this.lineHeight = "2";
+      this.useSmallStyle = true;
+    }
   }
   componentDidMount() {
     FeaturedArtistStore.listen(this.onChange);
-    //FeaturedArtistActions.getResources(this.props.artistname);
+    this.resources = FeaturedArtistActions.getResources(this.props.artistname);
   }
   componentWillUnmount() {
     FeaturedArtistStore.unlisten(this.onChange);
@@ -28,20 +33,30 @@ export default class FeaturedArtistTile extends React.Component {
       this.forceUpdate();
     });
   }
-  renderFeaturedArtistContent(btnStyle, contentBgImg, blurBg) {
+  renderFeaturedArtistContent(btnStyle, contentBgImg, blurBg, h1DefaultStyle, h1SmallStyle) {
     if (this.showSplash) {
       return (
         <div className="splash" key="splash">
-          <h1>{this.props.artistname}</h1>
+          <h1 style={this.useSmallStyle ? h1SmallStyle : h1DefaultStyle}>{this.props.artistname}</h1>
           <img src="img/JEFFREY_album.jpg" alt="JEFFREY"></img>
           <h3>JEFFREY</h3>
           <h5>
-            <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
+            <a className="play">
+              <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
+            </a>
+            <a className="enqueue">
+              <i className="fa fa-plus-circle fa-fw fa-lg" aria-hidden="false"></i>
+            </a>
             &nbsp;
             Harambe
           </h5>
           <h5>
-            <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
+            <a className="play" href="">
+              <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
+            </a>
+            <a className="enqueue" href="">
+              <i className="fa fa-plus-circle fa-fw fa-lg" aria-hidden="false"></i>
+            </a>
             &nbsp;
             Floyd Mayweather
           </h5>
@@ -103,13 +118,22 @@ export default class FeaturedArtistTile extends React.Component {
       backgroundRepeat: 'no-repeat',
       backgroundPosition: '50% 50%',
     }
+
+    const h1DefaultStyle = {
+      height: "55px",
+    }
+    const h1SmallStyle = {
+      height: "55px",
+      fontSize: this.fontSize,
+      lineHeight: this.lineHeight
+    }
     return (
       <div className="featuredartisttile">
         <ReactCSSTransitionReplace
           transitionName="featured-animation"
           transitionEnterTimeout={1200}
           transitionLeaveTimeout={800}>
-          {this.renderFeaturedArtistContent(btnStyle, contentBgImg, blurBg)}
+          {this.renderFeaturedArtistContent(btnStyle, contentBgImg, blurBg, h1DefaultStyle, h1SmallStyle)}
         </ReactCSSTransitionReplace>
       </div>
     );

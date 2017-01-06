@@ -5,7 +5,9 @@ class FeaturedArtistStore {
   constructor() {
     this.bindListeners({
       onToggleSplashInfo: FeaturedArtistActions.toggleSplashInfo,
-      onSetSplashInfo: FeaturedArtistActions.setSplashInfo
+      onSetSplashInfo: FeaturedArtistActions.setSplashInfo,
+      onGetResourcesSuccess: FeaturedArtistActions.getResourcesSuccess,
+      onGetResourcesFail: FeaturedArtistActions.getResourcesFail
     })
 
     this.resourcesByArtistname = {};
@@ -20,7 +22,13 @@ class FeaturedArtistStore {
     this.showSplashByArtistname[artistname] = true;
   }
 
+  onGetResourcesSuccess(data) {
+    this.resourcesByArtistname = data;
+  }
 
+  onGetResourcesFail(jqXhr) {
+    return jqXhr;
+  }
 }
 
 export default alt.createStore(FeaturedArtistStore);
