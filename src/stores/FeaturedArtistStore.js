@@ -23,7 +23,9 @@ class FeaturedArtistStore {
   }
 
   onGetResourcesSuccess(data) {
-    this.resourcesByArtistname = data;
+    let artistname = data[0].artist;
+    this.resourcesByArtistname[artistname] = data;
+    console.log("ResourcesStore : %j", this.resourcesByArtistname[artistname]);
   }
 
   onGetResourcesFail(jqXhr) {

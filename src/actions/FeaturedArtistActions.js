@@ -15,7 +15,7 @@ class FeaturedArtistActions {
   getResources(artistname) {
     var params = { artist: artistname };
 
-    $.ajax({ url: '/api/featured/resources', data: params })
+    $.ajax({ url: '/api/resources/featured', data: params })
       .done((data) => {
         this.getResourcesSuccess(data)
       })

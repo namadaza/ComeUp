@@ -15,8 +15,9 @@ var _ = require('underscore');
 //DB
 var config = require('./db/config');
 var Artist = require('./db/Artist.model');
+mongoose.Promise = global.Promise; //mongoose deprecated default promise library
 mongoose.connect(config.database);
-mongoose.connection.on('error', function() {
+mongoose.connection.on('error', () => {
   console.info('Error: Could not connect to MongoDB. Did you forget to run `mongod`?');
 })
 
@@ -35,7 +36,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 /* GET /api/featured/resources:artist
  * returns the resources for a particular artist
  */
- app.get('/api/featured/resources', function(req, res, next) {
+ app.get('/api/resources/featured', function(req, res, next) {
   var artist;
   var params = req.query;
 

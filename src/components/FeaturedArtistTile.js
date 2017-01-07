@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
 import ReactCSSTransitionReplace from 'react-css-transition-replace';
+import Blur from 'react-blur';
 
 import FeaturedArtistStore from '../stores/FeaturedArtistStore';
 import FeaturedArtistActions from '../actions/FeaturedArtistActions';
@@ -12,6 +13,7 @@ export default class FeaturedArtistTile extends React.Component {
     this.onChange = this.onChange.bind(this);
     FeaturedArtistActions.setSplashInfo(this.props.artistname);
     this.showSplash = true;
+    this.resources = [];
 
     if (props.font) {
       this.fontSize = props.font;
@@ -21,7 +23,7 @@ export default class FeaturedArtistTile extends React.Component {
   }
   componentDidMount() {
     FeaturedArtistStore.listen(this.onChange);
-    this.resources = FeaturedArtistActions.getResources(this.props.artistname);
+    FeaturedArtistActions.getResources(this.props.artistname);
   }
   componentWillUnmount() {
     FeaturedArtistStore.unlisten(this.onChange);
@@ -30,77 +32,84 @@ export default class FeaturedArtistTile extends React.Component {
     //use call back and forceUpdate to re-render
     this.setState(state, () => {
       this.showSplash = this.state.showSplashByArtistname[this.props.artistname];
+      //might cause performance issues
+      if (this.props.artistname in this.state.resourcesByArtistname && this.resources.length == 0) {
+        this.resources.push(this.state.resourcesByArtistname[this.props.artistname][0]);
+        console.log("ResourcesTile : %j", this.resources);
+      }
       this.forceUpdate();
     });
   }
-  renderFeaturedArtistContent(btnStyle, contentBgImg, blurBg, h1DefaultStyle, h1SmallStyle) {
-    if (this.showSplash) {
-      return (
-        <div className="splash" key="splash">
-          <h1 style={this.useSmallStyle ? h1SmallStyle : h1DefaultStyle}>{this.props.artistname}</h1>
-          <img src="img/JEFFREY_album.jpg" alt="JEFFREY"></img>
-          <h3>JEFFREY</h3>
-          <h5>
-            <a className="play">
-              <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
+  renderFeaturedArtistContent(btnStyle, h1DefaultStyle, h1SmallStyle) {
+    if (this.resources.length != 0) {
+      const blurBg = {
+        backgroundImage: 'url(' + this.resources[0].albumBlurImgUrl + ')',
+        backgroundSize: 'cover',
+        backgroundRepeat: 'no-repeat',
+        backgroundPosition: '50% 50%',
+      }
+
+      if (this.showSplash) {
+        return (
+          <div className="splash" key="splash">
+            <h1 style={this.useSmallStyle ? h1SmallStyle : h1DefaultStyle}>{this.props.artistname}</h1>
+            <img src={this.resources[0].albumImgUrl}></img>
+            <h3>{this.resources[0].album}</h3>
+            <h5>
+              <a className="play">
+                <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
+              </a>
+              <a className="enqueue">
+                <i className="fa fa-plus-circle fa-fw fa-lg" aria-hidden="false"></i>
+              </a>
+              &nbsp;
+              {this.resources[0].songs[0].songName}
+            </h5>
+            <h5>
+              <a className="play" href="">
+                <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
+              </a>
+              <a className="enqueue" href="">
+                <i className="fa fa-plus-circle fa-fw fa-lg" aria-hidden="false"></i>
+              </a>
+              &nbsp;
+              {this.resources[0].songs[1].songName}
+            </h5>
+            <a href="#home" className="page-scroll">
+              <button className="btn btn-primary btn-skinny"
+                 style={btnStyle}
+                 onClick={() => { FeaturedArtistActions.toggleSplashInfo(this.props.artistname); }}>
+                SEE MORE
+              </button>
             </a>
-            <a className="enqueue">
-              <i className="fa fa-plus-circle fa-fw fa-lg" aria-hidden="false"></i>
-            </a>
-            &nbsp;
-            Harambe
-          </h5>
-          <h5>
-            <a className="play" href="">
-              <i className="fa fa-play-circle-o fa-fw fa-lg" aria-hidden="false"></i>
-            </a>
-            <a className="enqueue" href="">
-              <i className="fa fa-plus-circle fa-fw fa-lg" aria-hidden="false"></i>
-            </a>
-            &nbsp;
-            Floyd Mayweather
-          </h5>
-          <a href="#home" className="page-scroll">
+          </div>
+        )
+      }
+      else {
+        return (
+          <div className="info" key="info">
+            <div className="bg" style={blurBg}>
+              <div className="bio">
+                <h1>{this.props.artistname}</h1>
+                  <p>
+                  {this.resources[0].bio}
+                  </p>
+              </div>
+              <div className="socialmedia">
+                <img src="img/fb.png"></img>
+                <img src="img/ig.png"></img>
+                <img src="img/tw.png"></img>
+                <img src="img/yt.png"></img>
+              </div>
+            </div>
             <button className="btn btn-primary btn-skinny"
                style={btnStyle}
                onClick={() => { FeaturedArtistActions.toggleSplashInfo(this.props.artistname); }}>
-              SEE MORE
+              SEE LESS
             </button>
-          </a>
-        </div>
-      )
-    }
-    else {
-      return (
-        <div className="info" key="info">
-          <div className="bg" style={blurBg}>
-            <div className="bio">
-              <h1>{this.props.artistname}</h1>
-                <p>
-                Jeffery Lamar Williams[4] (born August 16, 1991), best known professionally as Young Thug, is
-                an American rapper from Atlanta, Georgia. Known for his unconventional vocal style, fashion,
-                and persona, he first received attention for his collaborations with fellow Southern rappers,
-                such as Rich Homie Quan, Birdman, Waka Flocka Flame, T.I., and Gucci Mane. Young Thug
-                initially released a series of independent mixtapes beginning in 2011 with I Came From Nothing.
-                In early 2013, he signed a record deal with Gucci Mane's 1017 Records[5] and later that year he
-                released his label debut mixtape 1017 Thug, which featured the critically praised
-                track "Picacho."[6]
-                </p>
-            </div>
-            <div className="socialmedia">
-              <img src="img/fb.png"></img>
-              <img src="img/ig.png"></img>
-              <img src="img/tw.png"></img>
-              <img src="img/yt.png"></img>
-            </div>
           </div>
-          <button className="btn btn-primary btn-skinny"
-             style={btnStyle}
-             onClick={() => { FeaturedArtistActions.toggleSplashInfo(this.props.artistname); }}>
-            SEE LESS
-          </button>
-        </div>
-      )
+        )
+      }
     }
   }
   render() {
@@ -109,16 +118,6 @@ export default class FeaturedArtistTile extends React.Component {
       borderRadius: '0px !important',
       padding: '0px'
     }
-
-    var contentBgImg = 'img/JEFFREY_album_blur.jpg'
-
-    const blurBg = {
-      backgroundImage: 'url(' + contentBgImg + ')',
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no-repeat',
-      backgroundPosition: '50% 50%',
-    }
-
     const h1DefaultStyle = {
       height: "55px",
     }
@@ -133,7 +132,7 @@ export default class FeaturedArtistTile extends React.Component {
           transitionName="featured-animation"
           transitionEnterTimeout={1200}
           transitionLeaveTimeout={800}>
-          {this.renderFeaturedArtistContent(btnStyle, contentBgImg, blurBg, h1DefaultStyle, h1SmallStyle)}
+          {this.renderFeaturedArtistContent(btnStyle, h1DefaultStyle, h1SmallStyle)}
         </ReactCSSTransitionReplace>
       </div>
     );

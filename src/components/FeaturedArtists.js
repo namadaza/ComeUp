@@ -17,9 +17,9 @@ export default class FeaturedArtists extends React.Component {
     return (
       <header>
         <div className="header-content" id="home">
-          <FeaturedArtistTile artistname="A Tribe Called Quest" font="30px"/>
+          <FeaturedArtistTile artistname="Anderson Paak"/>
           <FeaturedArtistTile artistname="Young Thug"/>
-          <FeaturedArtistTile artistname="Outkast"/>
+          <FeaturedArtistTile artistname="D.R.A.M"/>
         </div>
         <a href="#collection" className="button button-3d button-royal page-scroll" style={btnStyle}>REALIZE THE RISE</a>
 
